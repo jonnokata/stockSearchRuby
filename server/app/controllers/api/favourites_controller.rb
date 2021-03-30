@@ -13,7 +13,7 @@ class Api::FavouritesController < ApplicationController
 
       # add a favourite
       def create
-        favourite = Favourites.create()
+        favourite = Favourites.create(stockSymbol: params[:stockSymbol], stockName: params[:stockName])
         favourite_valid = favourite.valid?
         if favourite_valid
           render json: {message: 'Successfully added a new favourite!'}, status: 200
