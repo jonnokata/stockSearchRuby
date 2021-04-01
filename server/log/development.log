@@ -570,3 +570,399 @@ SyntaxError (/Users/jkatahanas/Documents/generalAssembly/projects/stockSearchRub
   
 app/controllers/api/stocks_controller.rb:21: syntax error, unexpected tLABEL
 app/controllers/api/stocks_controller.rb:21: syntax error, unexpected tLABEL
+Started GET "/api/stocks/" for ::1 at 2021-04-01 18:40:31 +1100
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::StocksController#index as */*
+  Parameters: {"search"=>"ibm", "stock"=>{"search"=>"ibm"}}
+Completed 200 OK in 2646ms (Views: 49.1ms | ActiveRecord: 0.5ms | Allocations: 20974)
+
+
+Started GET "/api/stocks/" for ::1 at 2021-04-01 18:42:22 +1100
+  
+SyntaxError (/Users/jkatahanas/Documents/generalAssembly/projects/stockSearchRuby/server/app/controllers/api/stocks_controller.rb:11: syntax error, unexpected tIDENTIFIER, expecting end
+...sponse: " search_query_response
+...          ^~~~~~~~~~~~~~~~~~~~~):
+  
+app/controllers/api/stocks_controller.rb:11: syntax error, unexpected tIDENTIFIER, expecting end
+app/controllers/api/stocks_controller.rb:11: syntax error, unexpected tIDENTIFIER, expecting end
+Started GET "/api/stocks/" for ::1 at 2021-04-01 18:42:58 +1100
+Processing by Api::StocksController#index as */*
+  Parameters: {"search"=>"ibm", "stock"=>{"search"=>"ibm"}}
+Completed 200 OK in 2688ms (Views: 11.0ms | ActiveRecord: 1.3ms | Allocations: 18175)
+
+
+Started GET "/api/stocks/" for ::1 at 2021-04-01 18:43:54 +1100
+Processing by Api::StocksController#index as */*
+  Parameters: {"search"=>"ibm", "stock"=>{"search"=>"ibm"}}
+Completed 200 OK in 1362ms (Views: 12.0ms | ActiveRecord: 1.8ms | Allocations: 18238)
+
+
+Started GET "/api/stocks/" for ::1 at 2021-04-01 18:45:01 +1100
+Processing by Api::StocksController#index as */*
+  Parameters: {"search"=>"ibm", "stock"=>{"search"=>"ibm"}}
+Completed 200 OK in 10854ms (Views: 7.3ms | ActiveRecord: 1.4ms | Allocations: 18085)
+
+
+Started POST "/api/favourites" for ::1 at 2021-04-01 19:16:11 +1100
+  [1m[35m (12.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::FavouritesController#create as */*
+  Parameters: {"stockSybmol"=>"IBM", "stockName"=>"Intl Blah", "favourite"=>{"stockSybmol"=>"IBM", "stockName"=>"Intl Blah"}}
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/favourites_controller.rb:16:in `create'
+  [1m[36mFavourites Create (91.5ms)[0m  [1m[32mINSERT INTO "favourites" ("stockName", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["stockName", "Intl Blah"], ["created_at", "2021-04-01 08:16:12.090358"], ["updated_at", "2021-04-01 08:16:12.090358"]]
+  ↳ app/controllers/api/favourites_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (7.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/favourites_controller.rb:16:in `create'
+Completed 200 OK in 438ms (Views: 5.3ms | ActiveRecord: 181.4ms | Allocations: 9102)
+
+
+Started POST "/api/favourites" for ::1 at 2021-04-01 19:16:35 +1100
+Processing by Api::FavouritesController#create as */*
+  Parameters: {"stockSymbol"=>"IBM", "stockName"=>"Intl Blah", "favourite"=>{"stockSymbol"=>"IBM", "stockName"=>"Intl Blah"}}
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/favourites_controller.rb:16:in `create'
+  [1m[36mFavourites Create (21.1ms)[0m  [1m[32mINSERT INTO "favourites" ("stockSymbol", "stockName", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["stockSymbol", "IBM"], ["stockName", "Intl Blah"], ["created_at", "2021-04-01 08:16:36.148215"], ["updated_at", "2021-04-01 08:16:36.148215"]]
+  ↳ app/controllers/api/favourites_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (22.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/favourites_controller.rb:16:in `create'
+Completed 200 OK in 212ms (Views: 1.0ms | ActiveRecord: 45.2ms | Allocations: 1735)
+
+
+Started GET "/api/favourites" for ::1 at 2021-04-01 19:17:03 +1100
+Processing by Api::FavouritesController#index as */*
+  [1m[36mFavourites Load (0.4ms)[0m  [1m[34mSELECT "favourites".* FROM "favourites"[0m
+  ↳ app/controllers/api/favourites_controller.rb:5:in `index'
+Completed 200 OK in 44ms (Views: 42.3ms | ActiveRecord: 0.4ms | Allocations: 914)
+
+
+Started GET "/api/favourites/ibm" for ::1 at 2021-04-01 19:17:37 +1100
+Processing by Api::FavouritesController#show as */*
+  Parameters: {"id"=>"ibm"}
+  [1m[36mFavourites Load (9.4ms)[0m  [1m[34mSELECT "favourites".* FROM "favourites" WHERE "favourites"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/api/favourites_controller.rb:11:in `show'
+Completed 404 Not Found in 131ms (ActiveRecord: 11.8ms | Allocations: 2124)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Favourites with 'id'=ibm):
+  
+app/controllers/api/favourites_controller.rb:11:in `show'
+Started GET "/api/favourites/ibm" for ::1 at 2021-04-01 19:18:54 +1100
+Processing by Api::FavouritesController#show as */*
+  Parameters: {"id"=>"ibm"}
+Completed 404 Not Found in 68ms (ActiveRecord: 27.9ms | Allocations: 501)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Favourites without an ID):
+  
+app/controllers/api/favourites_controller.rb:9:in `show'
+Started GET "/api/favourites" for ::1 at 2021-04-01 19:19:07 +1100
+Processing by Api::FavouritesController#index as */*
+  Parameters: {"stockSymbol"=>"IBM", "favourite"=>{"stockSymbol"=>"IBM"}}
+  [1m[36mFavourites Load (0.8ms)[0m  [1m[34mSELECT "favourites".* FROM "favourites"[0m
+  ↳ app/controllers/api/favourites_controller.rb:3:in `index'
+Completed 200 OK in 114ms (Views: 71.9ms | ActiveRecord: 42.0ms | Allocations: 3904)
+
+
+Started GET "/api/favourites" for ::1 at 2021-04-01 19:20:00 +1100
+Processing by Api::FavouritesController#index as */*
+  Parameters: {"stockSymbol"=>"IBM", "favourite"=>{"stockSymbol"=>"IBM"}}
+  [1m[36mFavourites Load (1.2ms)[0m  [1m[34mSELECT "favourites".* FROM "favourites"[0m
+  ↳ app/controllers/api/favourites_controller.rb:3:in `index'
+Completed 200 OK in 183ms (Views: 85.8ms | ActiveRecord: 49.3ms | Allocations: 4282)
+
+
+Started GET "/api/favourites/ibm" for ::1 at 2021-04-01 19:20:33 +1100
+Processing by Api::FavouritesController#show as */*
+  Parameters: {"stockSymbol"=>"IBM", "id"=>"ibm", "favourite"=>{"stockSymbol"=>"IBM"}}
+  [1m[36mFavourites Load (0.7ms)[0m  [1m[34mSELECT "favourites".* FROM "favourites" WHERE "favourites"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/api/favourites_controller.rb:9:in `show'
+Completed 404 Not Found in 30ms (ActiveRecord: 0.7ms | Allocations: 625)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Favourites with 'id'=IBM):
+  
+app/controllers/api/favourites_controller.rb:9:in `show'
+Started GET "/api/favourites/ibm" for ::1 at 2021-04-01 19:23:24 +1100
+Processing by Api::FavouritesController#show as */*
+  Parameters: {"stockSymbol"=>"IBM", "id"=>"ibm", "favourite"=>{"stockSymbol"=>"IBM"}}
+  [1m[36mFavourites Load (8.8ms)[0m  [1m[34mSELECT "favourites".* FROM "favourites" WHERE "favourites"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/api/favourites_controller.rb:9:in `show'
+Completed 404 Not Found in 88ms (ActiveRecord: 8.8ms | Allocations: 527)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Favourites with 'id'=IBM):
+  
+app/controllers/api/favourites_controller.rb:9:in `show'
+Started GET "/api/favourites/ibm" for ::1 at 2021-04-01 19:26:59 +1100
+Processing by Api::FavouritesController#show as */*
+  Parameters: {"stockSymbol"=>"IBM", "id"=>"ibm", "favourite"=>{"stockSymbol"=>"IBM"}}
+  [1m[36mFavourites Load (0.3ms)[0m  [1m[34mSELECT "favourites".* FROM "favourites" WHERE "favourites"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/api/favourites_controller.rb:9:in `show'
+Completed 404 Not Found in 30ms (ActiveRecord: 10.0ms | Allocations: 1482)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Favourites with 'id'=ibm):
+  
+app/controllers/api/favourites_controller.rb:9:in `show'
+Started GET "/api/favourites/IBM" for ::1 at 2021-04-01 19:27:23 +1100
+Processing by Api::FavouritesController#show as */*
+  Parameters: {"stockSymbol"=>"IBM", "id"=>"IBM", "favourite"=>{"stockSymbol"=>"IBM"}}
+  [1m[36mFavourites Load (0.4ms)[0m  [1m[34mSELECT "favourites".* FROM "favourites" WHERE "favourites"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/api/favourites_controller.rb:9:in `show'
+Completed 404 Not Found in 97ms (ActiveRecord: 0.4ms | Allocations: 527)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Favourites with 'id'=IBM):
+  
+app/controllers/api/favourites_controller.rb:9:in `show'
+Started GET "/api/favourites/1" for ::1 at 2021-04-01 19:28:22 +1100
+Processing by Api::FavouritesController#show as */*
+  Parameters: {"stockSymbol"=>"IBM", "id"=>"1", "favourite"=>{"stockSymbol"=>"IBM"}}
+  [1m[36mFavourites Load (0.8ms)[0m  [1m[34mSELECT "favourites".* FROM "favourites" WHERE "favourites"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/api/favourites_controller.rb:9:in `show'
+Completed 404 Not Found in 157ms (ActiveRecord: 14.0ms | Allocations: 1465)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Favourites with 'id'=IBM):
+  
+app/controllers/api/favourites_controller.rb:9:in `show'
+Started GET "/api/favourites/ibm" for ::1 at 2021-04-01 19:30:09 +1100
+Processing by Api::FavouritesController#show as */*
+  Parameters: {"stockSymbol"=>"IBM", "id"=>"ibm", "favourite"=>{"stockSymbol"=>"IBM"}}
+  [1m[36mFavourites Load (11.5ms)[0m  [1m[34mSELECT "favourites".* FROM "favourites" WHERE "favourites"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/api/favourites_controller.rb:9:in `show'
+Completed 404 Not Found in 122ms (ActiveRecord: 18.5ms | Allocations: 1537)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Favourites with 'id'={:stockSymbol=>"ibm"}):
+  
+app/controllers/api/favourites_controller.rb:9:in `show'
+Started GET "/api/favourites/ibm" for ::1 at 2021-04-01 19:30:21 +1100
+Processing by Api::FavouritesController#show as */*
+  Parameters: {"stockSymbol"=>"IBM", "id"=>"ibm", "favourite"=>{"stockSymbol"=>"IBM"}}
+  [1m[36mFavourites Load (0.6ms)[0m  [1m[34mSELECT "favourites".* FROM "favourites" WHERE "favourites"."stockSymbol" = $1[0m  [["stockSymbol", "ibm"]]
+  ↳ app/controllers/api/favourites_controller.rb:9:in `show'
+Completed 200 OK in 145ms (Views: 60.1ms | ActiveRecord: 38.3ms | Allocations: 1462)
+
+
+Started GET "/api/favourites/IBM" for ::1 at 2021-04-01 19:30:34 +1100
+Processing by Api::FavouritesController#show as */*
+  Parameters: {"stockSymbol"=>"IBM", "id"=>"IBM", "favourite"=>{"stockSymbol"=>"IBM"}}
+  [1m[36mFavourites Load (25.3ms)[0m  [1m[34mSELECT "favourites".* FROM "favourites" WHERE "favourites"."stockSymbol" = $1[0m  [["stockSymbol", "IBM"]]
+  ↳ app/controllers/api/favourites_controller.rb:9:in `show'
+Completed 200 OK in 121ms (Views: 43.9ms | ActiveRecord: 76.4ms | Allocations: 3475)
+
+
+Started DELETE "/api/favourites/IBM" for ::1 at 2021-04-01 19:33:49 +1100
+Processing by Api::FavouritesController#destroy as */*
+  Parameters: {"stockSymbol"=>"IBM", "id"=>"IBM", "favourite"=>{"stockSymbol"=>"IBM"}}
+  [1m[36mFavourites Load (0.3ms)[0m  [1m[34mSELECT "favourites".* FROM "favourites" WHERE "favourites"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/api/favourites_controller.rb:25:in `destroy'
+Completed 404 Not Found in 41ms (ActiveRecord: 6.4ms | Allocations: 1533)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Favourites with 'id'={:stockSymbol=>"IBM"}):
+  
+app/controllers/api/favourites_controller.rb:25:in `destroy'
+Started DELETE "/api/favourites/IBM" for ::1 at 2021-04-01 19:34:29 +1100
+Processing by Api::FavouritesController#destroy as */*
+  Parameters: {"stockSymbol"=>"IBM", "id"=>"IBM", "favourite"=>{"stockSymbol"=>"IBM"}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 328)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/api/favourites_controller.rb:25:in `destroy'
+Started DELETE "/api/favourites/IBM" for ::1 at 2021-04-01 19:35:10 +1100
+Processing by Api::FavouritesController#destroy as */*
+  Parameters: {"stockSymbol"=>"IBM", "id"=>"IBM", "favourite"=>{"stockSymbol"=>"IBM"}}
+  [1m[36mFavourites Load (0.3ms)[0m  [1m[34mSELECT "favourites".* FROM "favourites" WHERE "favourites"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/api/favourites_controller.rb:25:in `destroy'
+Completed 404 Not Found in 35ms (ActiveRecord: 17.6ms | Allocations: 1468)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Favourites with 'id'=IBM):
+  
+app/controllers/api/favourites_controller.rb:25:in `destroy'
+Started DELETE "/api/favourites/IBM" for ::1 at 2021-04-01 19:37:28 +1100
+Processing by Api::FavouritesController#destroy as */*
+  Parameters: {"stockSymbol"=>"IBM", "id"=>"IBM", "favourite"=>{"stockSymbol"=>"IBM"}}
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms | Allocations: 2135)
+
+
+  
+NameError (undefined local variable or method `stockSymbol' for #<Api::FavouritesController:0x007fc3b4d67d68>):
+  
+app/controllers/api/favourites_controller.rb:25:in `destroy'
+Started DELETE "/api/favourites/IBM" for ::1 at 2021-04-01 19:37:52 +1100
+Processing by Api::FavouritesController#destroy as */*
+  Parameters: {"stockSymbol"=>"IBM", "id"=>"IBM", "favourite"=>{"stockSymbol"=>"IBM"}}
+  [1m[36mFavourites Load (0.8ms)[0m  [1m[34mSELECT "favourites".* FROM "favourites" WHERE "favourites"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/api/favourites_controller.rb:25:in `destroy'
+Completed 404 Not Found in 27ms (ActiveRecord: 21.8ms | Allocations: 1464)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Favourites with 'id'=stockSymbol):
+  
+app/controllers/api/favourites_controller.rb:25:in `destroy'
+Started DELETE "/api/favourites/IBM" for ::1 at 2021-04-01 19:39:18 +1100
+Processing by Api::FavouritesController#destroy as */*
+  Parameters: {"stockSymbol"=>"IBM", "id"=>"IBM", "favourite"=>{"stockSymbol"=>"IBM"}}
+  [1m[36mFavourites Load (39.4ms)[0m  [1m[34mSELECT "favourites".* FROM "favourites" WHERE (IBM)[0m
+  ↳ app/controllers/api/favourites_controller.rb:25:in `destroy'
+Completed 500 Internal Server Error in 55ms (ActiveRecord: 39.4ms | Allocations: 900)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  column "ibm" does not exist
+LINE 1: SELECT "favourites".* FROM "favourites" WHERE (IBM)
+                                                       ^
+):
+  
+app/controllers/api/favourites_controller.rb:25:in `destroy'
+Started DELETE "/api/favourites/IBM" for ::1 at 2021-04-01 19:39:55 +1100
+Processing by Api::FavouritesController#destroy as */*
+  Parameters: {"stockSymbol"=>"IBM", "id"=>"IBM", "favourite"=>{"stockSymbol"=>"IBM"}}
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms | Allocations: 2128)
+
+
+  
+NameError (undefined local variable or method `stockSymbol' for #<Api::FavouritesController:0x007fc3b84f6428>):
+  
+app/controllers/api/favourites_controller.rb:25:in `destroy'
+Started DELETE "/api/favourites/IBM" for ::1 at 2021-04-01 19:40:24 +1100
+Processing by Api::FavouritesController#destroy as */*
+  Parameters: {"stockSymbol"=>"IBM", "id"=>"IBM", "favourite"=>{"stockSymbol"=>"IBM"}}
+  [1m[36mFavourites Load (15.6ms)[0m  [1m[34mSELECT "favourites".* FROM "favourites" WHERE "favourites"."stockSymbol" = $1[0m  [["stockSymbol", "stockSymbol"]]
+  ↳ app/controllers/api/favourites_controller.rb:25:in `destroy'
+Completed 200 OK in 33ms (Views: 0.3ms | ActiveRecord: 16.9ms | Allocations: 1387)
+
+
+Started POST "/api/favourites" for ::1 at 2021-04-01 19:43:05 +1100
+Processing by Api::FavouritesController#create as */*
+  Parameters: {"stockSymbol"=>"JK", "stockName"=>"Jonno", "favourite"=>{"stockSymbol"=>"JK", "stockName"=>"Jonno"}}
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/favourites_controller.rb:14:in `create'
+  [1m[36mFavourites Create (41.7ms)[0m  [1m[32mINSERT INTO "favourites" ("stockSymbol", "stockName", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["stockSymbol", "JK"], ["stockName", "Jonno"], ["created_at", "2021-04-01 08:43:05.615526"], ["updated_at", "2021-04-01 08:43:05.615526"]]
+  ↳ app/controllers/api/favourites_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/favourites_controller.rb:14:in `create'
+Completed 200 OK in 114ms (Views: 0.2ms | ActiveRecord: 83.1ms | Allocations: 4394)
+
+
+Started DELETE "/api/favourites/Jonno" for ::1 at 2021-04-01 19:43:22 +1100
+Processing by Api::FavouritesController#destroy as */*
+  Parameters: {"stockSymbol"=>"JK", "stockName"=>"Jonno", "id"=>"Jonno", "favourite"=>{"stockSymbol"=>"JK", "stockName"=>"Jonno"}}
+  [1m[36mFavourites Load (0.3ms)[0m  [1m[34mSELECT "favourites".* FROM "favourites" WHERE "favourites"."stockSymbol" = $1[0m  [["stockSymbol", "stockSymbol"]]
+  ↳ app/controllers/api/favourites_controller.rb:25:in `destroy'
+Completed 200 OK in 5ms (Views: 0.6ms | ActiveRecord: 0.3ms | Allocations: 620)
+
+
+Started DELETE "/api/favourites/Jonno" for ::1 at 2021-04-01 19:48:05 +1100
+Processing by Api::FavouritesController#destroy as */*
+  Parameters: {"stockSymbol"=>"JK", "stockName"=>"Jonno", "id"=>"Jonno", "favourite"=>{"stockSymbol"=>"JK", "stockName"=>"Jonno"}}
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 5.5ms | Allocations: 1001)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/api/favourites_controller.rb:25:in `destroy'
+Started DELETE "/api/favourites/Jonno" for ::1 at 2021-04-01 19:49:17 +1100
+Processing by Api::FavouritesController#destroy as */*
+  Parameters: {"stockSymbol"=>"JK", "stockName"=>"Jonno", "id"=>"Jonno", "favourite"=>{"stockSymbol"=>"JK", "stockName"=>"Jonno"}}
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 1.0ms | Allocations: 942)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/api/favourites_controller.rb:25:in `destroy'
+Started DELETE "/api/favourites/Jonno" for ::1 at 2021-04-01 19:50:11 +1100
+Processing by Api::FavouritesController#destroy as */*
+  Parameters: {"stockSymbol"=>"JK", "stockName"=>"Jonno", "id"=>"Jonno", "favourite"=>{"stockSymbol"=>"JK", "stockName"=>"Jonno"}}
+Completed 500 Internal Server Error in 37ms (ActiveRecord: 32.7ms | Allocations: 951)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/api/favourites_controller.rb:25:in `destroy'
+Started DELETE "/api/favourites/Jonno" for ::1 at 2021-04-01 19:51:26 +1100
+Processing by Api::FavouritesController#destroy as */*
+  Parameters: {"stockSymbol"=>"JK", "stockName"=>"Jonno", "id"=>"Jonno", "favourite"=>{"stockSymbol"=>"JK", "stockName"=>"Jonno"}}
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 1.2ms | Allocations: 951)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/api/favourites_controller.rb:25:in `destroy'
+Started DELETE "/api/favourites/Jonno" for ::1 at 2021-04-01 19:51:27 +1100
+Processing by Api::FavouritesController#destroy as */*
+  Parameters: {"stockSymbol"=>"JK", "stockName"=>"Jonno", "id"=>"Jonno", "favourite"=>{"stockSymbol"=>"JK", "stockName"=>"Jonno"}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 149)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/api/favourites_controller.rb:25:in `destroy'
+Started GET "/api/stocks/ibm" for ::1 at 2021-04-01 20:02:34 +1100
+  
+AbstractController::ActionNotFound (The action 'show' could not be found for Api::StocksController
+Did you mean?  index):
+  
+actionpack (6.1.3.1) lib/abstract_controller/base.rb:160:in `process'
+actionpack (6.1.3.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.1.3.1) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.1.3.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.1.3.1) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.1.3.1) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (6.1.3.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.1.3.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.1.3.1) lib/action_dispatch/routing/route_set.rb:842:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+activerecord (6.1.3.1) lib/active_record/migration.rb:601:in `call'
+actionpack (6.1.3.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.3.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.3.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.3.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.3.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.3.1) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+actionpack (6.1.3.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.3.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.3.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.3.1) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.3.1) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.3.1) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.3.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.1.3.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.3.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.3.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.3.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.3.1) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.3.1) lib/action_dispatch/middleware/host_authorization.rb:98:in `call'
+railties (6.1.3.1) lib/rails/engine.rb:539:in `call'
+puma (5.2.2) lib/puma/configuration.rb:248:in `call'
+puma (5.2.2) lib/puma/request.rb:76:in `block in handle_request'
+puma (5.2.2) lib/puma/thread_pool.rb:337:in `with_force_shutdown'
+puma (5.2.2) lib/puma/request.rb:75:in `handle_request'
+puma (5.2.2) lib/puma/server.rb:431:in `process_client'
+puma (5.2.2) lib/puma/thread_pool.rb:145:in `block in spawn_thread'
