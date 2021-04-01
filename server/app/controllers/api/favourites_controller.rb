@@ -22,7 +22,7 @@ class Api::FavouritesController < ApplicationController
 
   # delete a favourite
   def destroy
-    Favourites.where(stockSymbol: params[:stockSymbol]).destroy
+    Favourites.where(stockSymbol: params[:id]).destroy_all
     render json: { message: "Favourite has been removed from list" }
   end
 end
