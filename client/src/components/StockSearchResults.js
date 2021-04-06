@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Text, Box, Center } from "@chakra-ui/react";
 
 const StockSearchResults = (props) => {
+  console.log(props);
   let dateData = Object.keys(props.data.stockPrice["Time Series (Daily)"]);
   const dateDataToday = dateData[0];
 

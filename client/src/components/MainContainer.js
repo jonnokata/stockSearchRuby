@@ -19,11 +19,14 @@ const FunctionalStockContainer = () => {
 
   const handleStockSearchFormSubmit = (searchParam) => {
     setIsStockFavourite(false);
-    fetch(`/api/stocks/search/${searchParam}`, {
-      method: "GET",
+    fetch(`/api/stocks`, {
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
+      body: JSON.stringify({
+        search: searchParam,
+      }),
     })
       .then((response) => {
         return response.json();

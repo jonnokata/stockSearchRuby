@@ -1,15 +1,18 @@
 class Api::FavouritesController < ApplicationController
+
+  # GET /api/favourites
   def index
     render json: Favourites.all
   end
 
   # render all favourites
+  # GET api/favourites/:stockSymbol
   def show
-    puts params[:stockSymbol]
     render json: Favourites.where(stockSymbol: params[:id])
   end
 
   # add a favourite
+  # POST api/favourites
   def create
     favourite = Favourites.create(stockSymbol: params[:stockSymbol], stockName: params[:stockName])
     favourite_valid = favourite.valid?
@@ -21,6 +24,7 @@ class Api::FavouritesController < ApplicationController
   end
 
   # delete a favourite
+  # DELETE api/favourites/:stockSymbol
   def destroy
     Favourites.where(stockSymbol: params[:id]).destroy_all
     render json: { message: "Favourite has been removed from list" }

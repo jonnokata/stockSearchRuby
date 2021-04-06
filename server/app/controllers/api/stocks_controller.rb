@@ -2,8 +2,8 @@ require "rest-client"
 
 class Api::StocksController < ApplicationController
 
-  # Not sure what to do for search?
-  def index
+  # GET /api/stocks
+  def create
     p params[:search]
     search_query = "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=#{params[:search]}&apikey=EU18KIHPYJ49OM7D"
     search_query_response = RestClient.get search_query, { accept: :json }
@@ -18,9 +18,9 @@ class Api::StocksController < ApplicationController
     price_query_response = RestClient.get price_query, { accept: :json }
     price_query_response_json = JSON.parse (price_query_response)
 
-    stockDataResponse = [stockSymbol: stockSymbolConst, stockName: stockNameConst, stockPrice: price_query_response_json]
+    stockDataResponse = { stockSymbol: stockSymbolConst, stockName: stockNameConst, stockPrice: price_query_response_json }
     p stockDataResponse
 
-    render json: { data: price_query_response_json }
+    render json: stockDataResponse
   end
 end
